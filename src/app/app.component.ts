@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {UsersService} from "./services/users.service";
+import {IUser} from "./models/IUser";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test-task-CodeSeek';
+  users: IUser[]
+  constructor(private usersService: UsersService) {
+    this.usersService.getUsersFromJPH().subscribe(value => {
+      this.users = value
+      this.usersService.setItems(this.users)
+    })
+  }
 }
