@@ -31,11 +31,17 @@ export class UsersService {
 
   delItem(id: number) {
     let users: IUser[] = []
-    console.log(this.getAllFromLocal().filter(value => {
+    this.getAllFromLocal().filter(value => {
       if (value.id !== id){
         users.push(value)
       }
-    }));
+    });
     this.saveStorage(users);
+  }
+
+  pushItem(user: IUser){
+    let users = this.getAllFromLocal()
+    users.push(user)
+    this.saveStorage(users)
   }
 }

@@ -9,7 +9,7 @@ import {RouterModule} from "@angular/router";
 import {routes} from "./routes/routes";
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import { FormComponent } from './components/form/form.component';
+import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +17,14 @@ import { FormComponent } from './components/form/form.component';
     UsersComponent,
     UserComponent,
     UserInfoComponent,
-    FormComponent
+    FormReactiveComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
-    ReactiveFormsModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

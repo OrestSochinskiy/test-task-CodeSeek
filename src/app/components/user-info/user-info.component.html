@@ -1,10 +1,10 @@
 <div>
-  <h4><span class="title">ID</span> - {{user.id}}<br/>
-  <span class="title">Name</span> - {{user.name}} <br/>
-<span class="title">Username</span> - {{user.username}}<br/>
-<span class="title">Email</span> - {{user.email}}<br/>
-<span class="title">Phone</span> - {{user.phone}}<br/>
-<span class="title">City</span>  - {{user.address.city}}<br/>
-<span class="title">Street</span> - {{user.address.street}}</h4>
+  <h4><span class="title">ID</span> - {{user?.id}}<br/>
+  <span class="title">Name</span> - {{user?.name}} <br/>
+<span class="title">Username</span> - {{user?.username}}<br/>
+<span class="title">Email</span> - {{user?.email}}<br/>
+<span class="title">Phone</span> - {{user?.phone}}<br/>
+<span class="title">City</span>  - {{user.address?.city}}<br/>
+<span class="title">Street</span> - {{user.address?.street}}</h4>
   <button style="cursor: pointer" (click)="Back()">BACK</button>
 </div>

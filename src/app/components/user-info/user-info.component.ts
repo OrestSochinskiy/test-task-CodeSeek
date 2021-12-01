@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {IUser} from "../../models/IUser";
+import {UsersService} from "../../services/users.service";
 
 @Component({
   selector: 'app-user-info',
@@ -10,7 +11,7 @@ import {IUser} from "../../models/IUser";
 export class UserInfoComponent implements OnInit {
 
   user: IUser
-  constructor(private router: Router) {
+  constructor(private router: Router,private usersService: UsersService) {
     this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
 
   }
@@ -18,6 +19,7 @@ export class UserInfoComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
 
   Back() {
     history.back()

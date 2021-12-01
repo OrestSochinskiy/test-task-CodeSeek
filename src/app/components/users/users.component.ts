@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UsersService} from "../../services/users.service";
 import {IUser} from "../../models/IUser";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-users',
@@ -25,9 +26,9 @@ export class UsersComponent implements OnInit {
   }
 
   onInput() {
-    const filter = this.filter.controls['filter'].value
+    const filter = this.filter.controls['filter'].value.toLocaleLowerCase()
     if (filter) {
-      this.users = this.usersService.getAllFromLocal().filter(value => value.name.includes(filter))
+      this.users = this.usersService.getAllFromLocal().filter(value => value.name.toLocaleLowerCase().includes(filter))
     } else {
       this.users = this.usersService.getAllFromLocal()
     }
