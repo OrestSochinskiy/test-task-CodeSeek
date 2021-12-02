@@ -23,7 +23,6 @@ export class UserComponent implements OnInit {
   }
   del() {
     let id = this.user.id
-    console.log(id);
     this.usersService.delItem(id);
   }
 }

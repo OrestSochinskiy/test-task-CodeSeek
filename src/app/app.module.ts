@@ -8,7 +8,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 import {routes} from "./routes/routes";
 import { UserInfoComponent } from './components/user-info/user-info.component';
-import {FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormReactiveComponent } from './components/form-reactive/form-reactive.component';
 
 @NgModule({

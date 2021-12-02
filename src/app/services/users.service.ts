@@ -44,4 +44,17 @@ export class UsersService {
     users.push(user)
     this.saveStorage(users)
   }
+
+  editUser(item: IUser) {
+    let users = this.getAllFromLocal()
+    let index = users.findIndex((value => value.id === item.id))
+    users[index].id = item.id
+    users[index].name = item.name
+    users[index].username = item.username
+    users[index].email = item.email
+    users[index].phone = item.phone
+    users[index].address.city = item.address.city
+    users[index].address.street = item.address.street
+    this.saveStorage(users)
+  }
 }

@@ -11,7 +11,7 @@ import {UsersService} from "../../services/users.service";
 export class UserInfoComponent implements OnInit {
 
   user: IUser
-  constructor(private router: Router,private usersService: UsersService) {
+  constructor(private router: Router,private usersService: UsersService,private activatedRoute: ActivatedRoute) {
     this.user = this.router.getCurrentNavigation()?.extras.state as IUser;
 
   }
@@ -23,5 +23,9 @@ export class UserInfoComponent implements OnInit {
 
   Back() {
     history.back()
+  }
+
+  goToEdit() {
+    this.router.navigate(['create'],{state: this.user})
   }
 }

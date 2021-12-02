@@ -1,4 +1,4 @@
-<form [formGroup]="myForm" (ngSubmit)="save()">
+<form [formGroup]="myForm" (ngSubmit)=save()>
   <div>
     <input type="text" formControlName="name" placeholder="name">
         <span *ngIf="myForm.controls['name'].errors?.['required']">input required</span>
@@ -15,10 +15,11 @@
   <div>
     <input type="text" formControlName="email" placeholder="email">
     <span *ngIf="myForm.controls['email'].errors?.['required']">input required</span>
+      <span *ngIf="myForm.controls['email'].errors?.['email']">invalid</span>
   </div>
   <div formGroupName="address">
     <input type="text" formControlName="city" placeholder="city">
     <input type="text" formControlName="street" placeholder="street">
   </div>
-  <button [disabled]="myForm.invalid"  type="submit">SAVE</button>
+  <button  [disabled]="myForm.invalid" type="submit">{{type}}</button>
 </form>
