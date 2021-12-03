@@ -13,7 +13,7 @@ export class FormReactiveComponent implements OnInit {
 
   name = new FormControl(history.state.name || '', Validators.required)
   username = new FormControl(history.state.username || '', Validators.required)
-  phone = new FormControl(history.state.phone || '', [Validators.required, Validators.minLength(11)])
+  phone = new FormControl(history.state.phone || '', [Validators.required, Validators.minLength(11),this.numeric])
   email = new FormControl(history.state.email || '', [Validators.required])
   city = new FormControl(history.state.address?.city || '')
   street = new FormControl(history.state.address?.street || '')
@@ -49,15 +49,32 @@ export class FormReactiveComponent implements OnInit {
     return id
   }
 
+   numeric(control: AbstractControl) {
+    let val = control.value;
+
+    if (val === null || val === '') return null;
+
+    if (!val.toString().match(/^[0-9]+(\.?[0-9]+)?$/)) return { 'invalidNumber': true };
+
+    return null;
+  }
+
   save() {
-    if (this.type == 'edit') {
-      this.myForm.value.id = history.state.id
-      this.usersService.editUser(this.myForm.value)
-      this.router.navigate(['users'])
+    let users = this.usersService.getAllFromLocal();
+    let alertValue = !!(users.find(value => value.email === this.myForm.value.email))
+    if (alertValue) {
+      alert('Email is used')
     } else {
-      this.myForm.value.id = this.createId()
-      this.usersService.pushItem(this.myForm.value)
-      this.router.navigate(['users'])
+      if (this.type == 'edit') {
+        this.myForm.value.id = history.state.id
+        this.usersService.editUser(this.myForm.value)
+        this.router.navigate(['users'])
+      } else {
+        this.myForm.value.id = this.createId()
+        this.usersService.pushItem(this.myForm.value)
+        this.router.navigate(['users'])
+      }
     }
   }
+
 }

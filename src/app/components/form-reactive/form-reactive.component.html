@@ -10,6 +10,7 @@
   <div>
     <input type="text" formControlName="phone" placeholder="380">
       <span *ngIf="myForm.controls['phone'].errors?.['required']">input required</span>
+      <span *ngIf="myForm.controls['phone'].errors?.['invalidNumber']">only number </span>
     <span *ngIf="myForm.controls['phone'].errors?.['minlength']">min length is - {{myForm.controls['phone'].errors?.['minlength'].requiredLength}}, actual length is - {{myForm.controls['phone'].errors?.['minlength'].actualLength}}</span>
   </div>
   <div>
