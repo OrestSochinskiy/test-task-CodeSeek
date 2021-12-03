@@ -24,5 +24,6 @@ export class UserComponent implements OnInit {
   del() {
     let id = this.user.id
     this.usersService.delItem(id);
+    window.location.reload()
   }
 }

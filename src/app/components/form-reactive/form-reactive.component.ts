@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
 import {UsersService} from "../../services/users.service";
 import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-form-reactive',
@@ -13,7 +14,7 @@ export class FormReactiveComponent implements OnInit {
   name = new FormControl(history.state.name || '', Validators.required)
   username = new FormControl(history.state.username || '', Validators.required)
   phone = new FormControl(history.state.phone || '', [Validators.required, Validators.minLength(11)])
-  email = new FormControl(history.state.email || '', [Validators.required, Validators.email])
+  email = new FormControl(history.state.email || '', [Validators.required])
   city = new FormControl(history.state.address?.city || '')
   street = new FormControl(history.state.address?.street || '')
   myForm: FormGroup = new FormGroup({
