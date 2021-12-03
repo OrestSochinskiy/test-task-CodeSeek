@@ -1,0 +1,25 @@
+.user {
+  display: flex;
+  position: relative;
+  left: 70px;
+  color: #182352;
+}
+
+.underline{
+  text-decoration: underline;
+}
+
+.underline:hover{
+  color: #000926;
+}
+
+.buttons {
+  position: relative;
+  top: 50px;
+}
+
+.ownBtn {
+  cursor: pointer;
+  margin: 3px;
+  border-radius: 10px
+}

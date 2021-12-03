@@ -1,26 +1,27 @@
-<form [formGroup]="myForm" (ngSubmit)=save()>
-  <div>
-    <input type="text" formControlName="name" placeholder="name">
-        <span *ngIf="myForm.controls['name'].errors?.['required']">input required</span>
+<form [formGroup]="this.myForm" (ngSubmit)=this.save() class="center">
+  <div class="flex">
+    <input class="input-group-text" type="text" formControlName="name" placeholder="name">
+        <span *ngIf="this.myForm.controls['name'].errors?.['required']">input required</span>
   </div>
-  <div>
-    <input type="text" formControlName="username" placeholder="username">
-    <span *ngIf="myForm.controls['username'].errors?.['required']">input required</span>
+  <div class="flex">
+    <input class="input-group-text" type="text" formControlName="username" placeholder="username">
+    <span *ngIf="this.myForm.controls['username'].errors?.['required']">input required</span>
   </div>
-  <div>
-    <input type="text" formControlName="phone" placeholder="380">
-      <span *ngIf="myForm.controls['phone'].errors?.['required']">input required</span>
-      <span *ngIf="myForm.controls['phone'].errors?.['invalidNumber']">only number </span>
-    <span *ngIf="myForm.controls['phone'].errors?.['minlength']">min length is - {{myForm.controls['phone'].errors?.['minlength'].requiredLength}}, actual length is - {{myForm.controls['phone'].errors?.['minlength'].actualLength}}</span>
+  <div class="flex">
+    <input class="input-group-text" type="text" formControlName="phone" placeholder="380">
+      <span *ngIf="this.myForm.controls['phone'].errors?.['required']">input required</span>
+      <span *ngIf="this.myForm.controls['phone'].errors?.['invalidNumber']">only number</span>
+    <span *ngIf="this.myForm.controls['phone'].errors?.['minlength']">min length is - {{this.myForm.controls['phone'].errors?.['minlength'].requiredLength}}, actual length is - {{this.myForm.controls['phone'].errors?.['minlength'].actualLength}}</span>
   </div>
-  <div>
-    <input type="text" formControlName="email" placeholder="email">
-    <span *ngIf="myForm.controls['email'].errors?.['required']">input required</span>
-      <span *ngIf="myForm.controls['email'].errors?.['email']">invalid</span>
+  <div class="input-group mb-3input-group mb-3 flex">
+    <input class="input-group-text" type="text" formControlName="email" placeholder="@example.com">
+    <span *ngIf="this.myForm.controls['email'].errors?.['required']">input required</span>
+      <span *ngIf="this.myForm.controls['email'].errors?.['email']">invalid</span>
   </div>
-  <div formGroupName="address">
-    <input type="text" formControlName="city" placeholder="city">
-    <input type="text" formControlName="street" placeholder="street">
+  <h2 style="color:#182352; text-decoration: underline">Address</h2>
+  <div class="flex" formGroupName="address">
+    <input class="input-group-text" type="text" formControlName="city" placeholder="city">
+    <input class="input-group-text" type="text" formControlName="street" placeholder="street" style="margin-left: 2px">
   </div>
-  <button  [disabled]="myForm.invalid" type="submit">{{type}}</button>
+  <button class="btn btn-success active"  [disabled]="this.myForm.invalid" type="submit">{{this.type}}</button>
 </form>

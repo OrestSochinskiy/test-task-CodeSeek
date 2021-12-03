@@ -14,7 +14,7 @@ export class FormReactiveComponent implements OnInit {
   name = new FormControl(history.state.name || '', Validators.required)
   username = new FormControl(history.state.username || '', Validators.required)
   phone = new FormControl(history.state.phone || '', [Validators.required, Validators.minLength(11),this.numeric])
-  email = new FormControl(history.state.email || '', [Validators.required])
+  email = new FormControl(history.state.email || '', [Validators.required,Validators.email])
   city = new FormControl(history.state.address?.city || '')
   street = new FormControl(history.state.address?.street || '')
   myForm: FormGroup = new FormGroup({
@@ -35,9 +35,6 @@ export class FormReactiveComponent implements OnInit {
     } else {
       this.type = 'create'
     }
-  }
-
-  edit() {
   }
 
   ngOnInit(): void {
@@ -62,7 +59,7 @@ export class FormReactiveComponent implements OnInit {
   save() {
     let users = this.usersService.getAllFromLocal();
     let alertValue = !!(users.find(value => value.email === this.myForm.value.email))
-    if (alertValue) {
+    if (alertValue && this.type !== 'edit') {
       alert('Email is used')
     } else {
       if (this.type == 'edit') {

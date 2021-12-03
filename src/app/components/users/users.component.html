@@ -1,6 +1,5 @@
-<hr>
-<form [formGroup]="filter" (input)="onInput()">
-  <label>Filter: <input type="text" formControlName="filter" placeholder="Find by name"></label>
+<form [formGroup]="filter" (input)="onInput()" class="formClass">
+  <input type="text" formControlName="filter" placeholder="Find by name" class="input-group-text">
 </form>
-<hr>
+<hr/>
 <app-user *ngFor="let u of users" [user]="u"></app-user>

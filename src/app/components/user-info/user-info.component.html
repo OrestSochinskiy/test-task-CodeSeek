@@ -6,6 +6,6 @@
 <span class="title">Phone</span> - {{user?.phone}}<br/>
 <span class="title">City</span>  - {{user.address?.city}}<br/>
 <span class="title">Street</span> - {{user.address?.street}}</h4>
-  <button (click)="goToEdit()">EDIT DETAILS</button>
-  <button style="cursor: pointer" (click)="Back()">BACK</button>
+  <button class="btn btn-info" (click)="goToEdit()" style="margin-left: 6px">EDIT DETAILS</button>
+  <button class="btn btn-danger" style="cursor: pointer; margin-left: 6px" (click)="Back()">BACK</button>
 </div>
